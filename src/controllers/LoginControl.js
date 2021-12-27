@@ -7,9 +7,15 @@ import { NavigationService } from './../common';
 import LoginScreen from '../screens/LoginScreen';
 
 const LoginControl = ({navigation}) =>{
+
+    const LoginFunc= async ()=>{
+        NavigationService.navigate('Main');
+    }
     return(
         <View style = {styles.LoginControlWrap}>
-            <LoginScreen />
+            <LoginScreen 
+                LoginFunc = {LoginFunc}
+            />
         </View>
     )
 }
