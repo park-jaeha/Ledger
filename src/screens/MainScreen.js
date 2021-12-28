@@ -35,7 +35,7 @@ const MainScreen = (props)=>{
     }
     return(
         <View style ={styles.MainScreenWrap}>
-            <Text>Test Ledger Main page</Text>
+            <Text style ={{textAlign:'center'}}>Test Ledger Main page</Text>
             <TouchableOpacity
                 style={{
                 width: 230 ,
@@ -43,8 +43,9 @@ const MainScreen = (props)=>{
                 backgroundColor:  '#000' ,
                 padding:12,
                 marginTop: 20,
-                borderRadius: 30,}}
-
+                borderRadius: 30,
+                alignSelf:'center',
+                }}
                 onPress = {returnFunc}
             >
                 <Text style ={{ color:'#fff', textAlign:'center'}}>로그인페이지</Text>
@@ -55,7 +56,8 @@ const MainScreen = (props)=>{
 
 const styles = StyleSheet.create({
     MainScreenWrap :{
-        flex:1
+        flex:1,
+        justifyContent:'center',
     }
 });
 
