@@ -10,7 +10,7 @@ const LoginScreen = (props)=>{
     }
 
     return(
-        <ImageBackground source = {fish} style ={{flex:1,}}>
+        <ImageBackground source = {fish} style ={{flex:1,}} blurRadius={10}>
             <View style ={styles.LoginScreenWrap} >
                 <Text style ={{textAlign:'center'}}>Test Ledger page</Text>
                 <TouchableOpacity
