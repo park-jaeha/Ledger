@@ -51,10 +51,3 @@ const MariaConnUpload = async (upload) => {
 }
 
 module.exports = MariaConnUpload;
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Cont
