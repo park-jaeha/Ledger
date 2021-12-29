@@ -34,6 +34,9 @@ const MainScreen = (props)=>{
     const returnFunc =()=>{
         props.returnFunc();
     }
+    const settingFunc =()=>{
+        props.settingFunc();
+    }
     return(
         <View style ={styles.MainScreenWrap}>
             <View style ={styles.MainTitleWrap}>
@@ -57,6 +60,9 @@ const MainScreen = (props)=>{
                     <Text style ={{ color:'#fff', textAlign:'center'}}>로그인페이지</Text>
                 </TouchableOpacity>
             </View>
+            <TouchableOpacity onPress={()=>{NavigationService.navigate('설정')}} >
+                <Text style ={{textAlign:'right',}}>Settings...</Text>
+            </TouchableOpacity>
         </View>
     );
 }

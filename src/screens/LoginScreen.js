@@ -1,8 +1,34 @@
 import * as React from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity,ImageBackground, Platform, Image } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity,ImageBackground, BackHandler, Alert } from 'react-native';
 import fish from './../images/fish_48.png';
+import { NavigationService } from './../common';
+
 
 const LoginScreen = (props)=>{
+    React.useEffect(() => {
+        const backAction = () => {
+            Alert.alert(
+                '앱 종료',
+                '정말로 앱을 종료하시겠습니까?', [
+                    {
+                        text: '취소',
+                        onPress: () => console.log("Cancel Pressed"),
+                        style: 'cancel'
+                    }, { text: '종료', onPress: async () => {
+                        BackHandler.exitApp();
+                    } }
+                ], { cancelable: false }
+            );
+            return true;
+        };
+    
+        const backHandler = BackHandler.addEventListener(
+            "hardwareBackPress",
+            backAction
+        );
+    
+        return () => backHandler.remove();
+    }, []);
 
 
     const LoginFunc = ()=>{

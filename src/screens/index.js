@@ -3,10 +3,12 @@ import { createStackNavigator } from 'react-navigation-stack';
 /** Component Import */
 import LoginScreen from '../controllers/LoginControl';
 import MainScreen from '../controllers/MainControl';
+import SettingScreen from '../controllers/SettingControl';
 
 const AuthStack = createStackNavigator(
     {
-        Main : {screen : MainScreen}
+        Main : {screen : MainScreen},
+        설정 : {screen : SettingScreen}
     },
     {
         initialRouteName: 'Main',

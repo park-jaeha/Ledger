@@ -14,4 +14,4 @@ let config = {
 //     port: Global.mariaConfig.port,
 // };
 
-module.exports =config;
+module.exports = config;

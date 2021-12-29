@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "502677872464",
+    "project_id": "paywallet-1d0f8",
+    "storage_bucket": "paywallet-1d0f8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502677872464:android:d096e40b9269632a165655",
+        "android_client_info": {
+          "package_name": "com.ledger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "502677872464-kbjjs7876i1pjg6763uv07qqg226mre1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHvNYrGfUsAJK4Y7r5FSjGWfe19ZD7hiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "502677872464-kbjjs7876i1pjg6763uv07qqg226mre1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
