@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity,ImageBackground, BackHandler, Alert } from 'react-native';
-import fish from './../images/fish_48.png';
+import fish from './../images/Logo/fish_48.png';
 import { NavigationService } from './../common';
 
 
@@ -38,7 +38,7 @@ const LoginScreen = (props)=>{
     return(
         <ImageBackground source = {fish} style ={{flex:1,}} blurRadius={10}>
             <View style ={styles.LoginScreenWrap} >
-                <Text style ={{textAlign:'center', color :'#EAB0FC'}}>Test Ledger page</Text>
+                <Text style ={{alignSelf:'center', width:200, textAlign:'center', color :'#EAB0FC', backgroundColor:'#000'}}>Test Ledger page</Text>
                 <TouchableOpacity
                     style={{
                     width: 120 ,

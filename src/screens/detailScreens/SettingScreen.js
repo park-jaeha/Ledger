@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity, Alert, BackHandler } from 'react-native';
 import { NavigationService } from '../../common';
+/**Component import */
+import Calendar from '../component/Calendar';
 
 const SettingScreen = (props) =>{
     React.useEffect(() => {
@@ -17,9 +19,20 @@ const SettingScreen = (props) =>{
         return () => backHandler.remove();
     }, []);
 
+
+    const [date, setDate] = React.useState('');
+
+    const getDate = (_date) =>{
+        setDate(_date);
+    }
     return(
         <View style ={styles.SettingScreenWrap}>
             <Text style ={{marginLeft:15,}}>Settings...</Text>
+            <Calendar 
+                name = "test"
+                getDate ={getDate}
+            />
+                
         </View>
     );
 }
