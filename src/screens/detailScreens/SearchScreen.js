@@ -1,8 +1,8 @@
+import { max } from 'moment';
 import * as React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity, Alert, BackHandler } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { NavigationService } from '../../common';
-import { userID, userPW } from '../LoginScreen';
 
 const SearchScreen = (props) =>{
     React.useEffect(() => {
@@ -23,24 +23,24 @@ const SearchScreen = (props) =>{
     const nextInp = React.useRef();
 
     const searchFunc = () => {
-        props.SearchFunc(searchID,searchPW);
+        props.SearchFunc(searchID);
     }
 
     return(
         <View style ={styles.SearchScreenWrap}>
-            <View style = {{flex =1,alignItems:'center'}}>
+            <View style = {{flex:1, marginTop : 30, alignItems:'center', borderBottomColor: 'black', borderBottomWidth: 1,}}>
                 <TextInput
                     style = {styles.SearchScreenTextInput}
                     placeholder = 'ID'
                     value={searchID}
                     onChangeText ={searchUserID}
                 />
-                <Hr text="line style"
-                    lineStyle={{
-                    backgroundColor: "blue",
-                    height: 4
-                    }}
-                />
+                <View style={{width : '100%', height : 2, marginBottom : 15, marginTop : 15, backgroundColor : '#ffff'}}/>
+{/*                 
+                <View style={{flex:1, padding:20, marginTop:20, marginBottom:20}}>
+                      ID , 이름 , PWD 뜨게 할 부분 
+                </View>
+                 */}
                 <View style ={{flex:1}}>
                     <TouchableOpacity
                         style={{

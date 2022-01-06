@@ -11,5 +11,5 @@ module.exports = {
         user:'jh',
         password:'root',
         port:3306,
-    }
+    },
 };
