@@ -12,4 +12,9 @@ module.exports = {
         password:'root',
         port:3306,
     },
+    SearchedUserInfo:{
+        s_userId:'',
+        s_userPw:'',
+        s_userNm:'',
+    },
 };

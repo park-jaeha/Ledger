@@ -6,32 +6,14 @@ import { NavigationService } from './../common';
 import Toast from 'react-native-toast-message';
 /** Component import */
 import SearchScreen from './../screens/detailScreens/SearchScreen';
-import { userInfo } from '../Global';
+import Global from '../Global';
+import MSSQLQuery from './../models/MSSQL/MSSQLQuery';
 
 const SearchControl = ()=>{
 
     const searchFunc = async(id)=>{
-        if(id == Global.userInfo._userId){
-            // <View style = {styles.SearchControlUserInfo}>
-            // <View style ={styles.SearchControlUserInfo}>
-            //     <View style = {styles.SearchControlUserInfoInside}>
-            //         <Text>ID</Text>
-            //         <Text>${id}</Text>
-            //     </View>
-            // </View>
-            // <View style ={styles.SearchControlUserInfo}>
-            //     <View style = {styles.SearchControlUserInfoInside}>
-            //         <Text>이름</Text>
-            //         <Text>${_userNm}</Text>
-            //     </View>
-            // </View>
-            // <View style ={styles.SearchControlUserInfo}>
-            //     <View style = {styles.SearchControlUserInfoInside}>
-            //         <Text>Pwd</Text>
-            //         <Text>${_userPw}</Text>
-            //     </View>
-            // </View>
-            // </View>
+        let MSSQLSelect = await MSSQLQuery("SELECT * FROM TB_USER WHERE USER_ID ='"+id+"'");
+        if(id||MSSQLSelect.length>=1){
             Toast.show({
                 type: 'success',
                 position: 'top',
@@ -43,6 +25,11 @@ const SearchControl = ()=>{
                 bottomOffset: 40,
             });
             console.log("success");
+            Global.SearchedUserInfo.s_userId = MSSQLSelect[0].USER_ID;
+            Global.SearchedUserInfo.s_userNm = MSSQLSelect[0].USER_NM;
+            Global.SearchedUserInfo.s_userPw = MSSQLSelect[0].USER_PW;
+            
+
         }else{
             Toast.show({
                 type: 'error',

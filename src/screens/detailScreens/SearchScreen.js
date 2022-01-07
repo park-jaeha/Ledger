@@ -3,6 +3,8 @@ import * as React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity, Alert, BackHandler } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { NavigationService } from '../../common';
+import Global from '../../Global';
+import MSSQLQuery from './../models/MSSQL/MSSQLQuery';
 
 const SearchScreen = (props) =>{
     React.useEffect(() => {
@@ -26,8 +28,11 @@ const SearchScreen = (props) =>{
 
     const searchFunc = () => {
         props.searchFunc(searchID);
-        console.log("clicked");
-    }  // props가 undefied로 뜸
+        // console.log("clicked");
+        setId(Global.SearchedUserInfo.s_userId);
+        setName(Global.SearchedUserInfo.s_userNm);
+        setPwd(Global.SearchedUserInfo.s_userPw);
+    }
 
     return(
         <View style ={styles.SearchScreenWrap}>
@@ -43,20 +48,20 @@ const SearchScreen = (props) =>{
             <View style ={{flex:0.6}}>
                 <View style ={styles.SearchControlUserInfo}>
                     <View style = {styles.SearchControlUserInfoInside}>
-                        <Text style ={{color:'red', textAlign:'center'}}>ID</Text>
-                        <Text>{Id}</Text>
+                        <Text style ={styles.SearchedItemsSpace}>ID :</Text>
+                        <Text style ={styles.SearchedItemsSpace}>{Id}</Text>
                     </View>
                 </View>
                 <View style ={styles.SearchControlUserInfo}>
                     <View style = {styles.SearchControlUserInfoInside}>
-                        <Text>이름</Text>
-                        <Text>{Name}</Text>
+                        <Text style ={styles.SearchedItemsSpace}>이름 :</Text>
+                        <Text style ={styles.SearchedItemsSpace}>{Name}</Text>
                     </View>
                 </View>
                 <View style ={styles.SearchControlUserInfo}>
                     <View style = {styles.SearchControlUserInfoInside}>
-                        <Text>Pwd</Text>
-                        <Text>{Pwd}</Text>
+                        <Text style ={styles.SearchedItemsSpace}>Pwd :</Text>
+                        <Text style ={styles.SearchedItemsSpace}>{Pwd}</Text>
                     </View>
                 </View>
             </View>
@@ -110,6 +115,10 @@ const styles = StyleSheet.create({
     SearchControlUserInfoInside:{
         flexDirection : 'row',
         alignItems : 'center',
+    },
+    SearchedItemsSpace:{
+        paddingLeft:10,
+        textAlign:'center',
     }
 });
 
