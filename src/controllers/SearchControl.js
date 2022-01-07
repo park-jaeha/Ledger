@@ -12,6 +12,7 @@ const SearchControl = ()=>{
 
     const searchFunc = async(id)=>{
         if(id == _userId){
+            <View style = {styles.SearchControlUserInfo}>
             <View style ={styles.SearchControlUserInfo}>
                 <View style = {styles.SearchControlUserInfoInside}>
                     <Text>ID</Text>
@@ -29,6 +30,7 @@ const SearchControl = ()=>{
                     <Text>Pwd</Text>
                     <Text>${_userPw}</Text>
                 </View>
+            </View>
             </View>
         }else{
             Toast.show({
