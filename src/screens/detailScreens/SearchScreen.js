@@ -26,10 +26,12 @@ const SearchScreen = (props) =>{
     const [Name, setName] = React.useState('');
     const [Pwd, setPwd] = React.useState('');
 
-    const searchFunc = () => {
-        props.searchFunc(searchID);
+    const searchFunc = async() => {
+        await props.searchFunc(searchID);
+        // await이 끝날때까지 setName 들이 기다린다
         // console.log("clicked");
         //setId(Global.SearchedUserInfo.s_userId);
+
         setName(Global.SearchedUserInfo.s_userNm);
         setPwd(Global.SearchedUserInfo.s_userPw);
     }
