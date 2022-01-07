@@ -12,9 +12,9 @@ import Global from '../Global';
 
 const LoginControl = ({navigation}) =>{
 
-    const LoginFunc= async (id,pw)=>{
-        let MSSQLSelect = await MSSQLQuery("SELECT * FROM TB_USER WHERE USER_ID ='"+id+"' AND USER_PWD ='"+pw+"'");
-        if(!id||!pw||MSSQLSelect.length<1){
+    const LoginFunc= async (userID,userPW)=>{
+        let MSSQLSelect = await MSSQLQuery("SELECT * FROM TB_USER WHERE USER_ID ='"+userID+"' AND USER_PWD ='"+userPW+"'");
+        if(!userID||!userPW||MSSQLSelect.length<1){
             Toast.show({
                 type: 'error',
                 position: 'top',

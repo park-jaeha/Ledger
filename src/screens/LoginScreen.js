@@ -26,9 +26,9 @@ const LoginScreen = (props)=>{
             "hardwareBackPress",
             backAction
         );
-    
         return () => backHandler.remove();
     }, []);
+    
     const [userID, setUserID] = React.useState('JH');
     const [userPW, setUserPW] = React.useState('test');
 
