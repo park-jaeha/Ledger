@@ -36,7 +36,7 @@ const SearchScreen = (props) =>{
                 <View style={{width : '100%', height : 2, marginBottom : 15, marginTop : 15, backgroundColor : '#ffff'}}/>
 {/*                 
                 <View style={{flex:1, padding:20, marginTop:20, marginBottom:20}}>
-                      ID , 이름 , PWD 뜨게 할 부분 
+                    ID , 이름 , PWD 뜨게 할 부분 
                 </View>
                  */}
                 <View style ={{flex:1}}>

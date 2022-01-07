@@ -38,7 +38,7 @@ const LoginControl = ({navigation}) =>{
             <LoginScreen 
                 LoginFunc = {LoginFunc}
             />
-            <Toast ref={(ref) => Toast.setRef(ref)} />
+            <Toast />
         </View>
     )
 }
