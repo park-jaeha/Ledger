@@ -42,7 +42,7 @@ const LoginScreen = (props)=>{
         <ImageBackground source = {fish} style ={{flex:1,}} blurRadius={10}>
             <View style ={styles.LoginScreenWrap} >
                 <View style = {{flex:1.5, justifyContent:'center'}}>
-                <Text style ={styles.LogoTextWrap}>가계부 test</Text>
+                <Text style ={{alignSelf:'center', width:200, textAlign:'center', color :'#EAB0FC', backgroundColor:'#000'}}>Test Ledger page</Text>
                 </View>
                 <View style = {{flex:1 ,alignItems:'center'}}> 
                 <TextInput
@@ -73,7 +73,7 @@ const LoginScreen = (props)=>{
                     borderRadius: 30,}}
                     onPress = {LoginFunc}
                 >
-                    <Text style ={{ color:'#fff', textAlign:'center'}}>로그인</Text>
+                    <Text style ={{ color:'#fff', textAlign:'center'}}>메인페이지</Text>
                 </TouchableOpacity>
                 </View>
             </View>
@@ -85,13 +85,6 @@ const styles = StyleSheet.create({
     LoginScreenWrap :{
         flex:1,
         justifyContent:'center',
-    },
-    LogoTextWrap:{
-        alignSelf:'center', 
-        width:200, 
-        textAlign:'center', 
-        color :'#EAB0FC', 
-        backgroundColor:'#000'
     },
     LoginScreenTextInput: {
         width: '80%',

@@ -37,6 +37,9 @@ const MainScreen = (props)=>{
     const settingFunc =()=>{
         props.settingFunc();
     }
+    const searchFunc =()=>{
+        props.searchFunc();
+    }
     return(
         <View style ={styles.MainScreenWrap}>
             <View style ={styles.MainTitleWrap}>
@@ -58,6 +61,20 @@ const MainScreen = (props)=>{
                     onPress = {returnFunc}
                 >
                     <Text style ={{ color:'#fff', textAlign:'center'}}>로그인페이지</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={{
+                    width: 230 ,
+                    justifyContent: 'flex-end',
+                    backgroundColor:  '#000' ,
+                    padding:12,
+                    marginTop: 20,
+                    borderRadius: 30,
+                    alignSelf:'center',
+                    }}
+                    onPress = {searchFunc}
+                >
+                    <Text style ={{ color:'#fff', textAlign:'center'}}>현우페이지</Text>
                 </TouchableOpacity>
             </View>
             <TouchableOpacity onPress={()=>{NavigationService.navigate('설정')}} >
