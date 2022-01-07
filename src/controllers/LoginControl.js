@@ -10,10 +10,13 @@ import LoginScreen from '../screens/LoginScreen';
 import MSSQLQuery from './../models/MSSQL/MSSQLQuery';
 import Global from '../Global';
 
+let MSSQLUpload = require('./../models/MSSQL/MSSQLQuery');
+
 const LoginControl = ({navigation}) =>{
 
     const LoginFunc= async (id,pw)=>{
         let MSSQLSelect = await MSSQLQuery("SELECT * FROM TB_USER WHERE USER_ID ='"+id+"' AND USER_PWD ='"+pw+"'");
+        console.log(MSSQLSelect);
         if(!id||!pw||MSSQLSelect.length<1){
             Toast.show({
                 type: 'error',

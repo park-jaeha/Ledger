@@ -20,6 +20,9 @@ const SearchScreen = (props) =>{
     }, []);
     /** 변수 */
     const [searchID, searchUserID] = React.useState('');
+    const [Id, setId] = React.useState('');
+    const [Name, setName] = React.useState('');
+    const [Pwd, setPwd] = React.useState('');
 
     const searchFunc = () => {
         props.searchFunc(searchID);
@@ -28,21 +31,36 @@ const SearchScreen = (props) =>{
 
     return(
         <View style ={styles.SearchScreenWrap}>
-            <View style = {{flex:1, marginTop : 30, alignItems:'center', borderBottomColor: 'black', borderBottomWidth: 1,}}>
+            <View style = {{flex:0.3, marginTop : 30, alignItems:'center', borderBottomColor: 'black', borderBottomWidth: 1,}}>
                 <TextInput
                     style = {styles.SearchScreenTextInput}
                     placeholder = 'ID'
                     value={searchID}
                     onChangeText ={searchUserID}
                 />
-                <View style={{width : '100%', height : 2, marginBottom : 15, marginTop : 15, backgroundColor : '#ffff'}}/>
-                
-                <View style={{flex:1, padding:20, marginTop:20, marginBottom:20}}>
-                    <Text>조회된 ID</Text>
-                    <Text>{searchID}</Text>
+            </View>
+            <View style={{width : '100%', height : 2, marginBottom : 15, marginTop : 15, backgroundColor : '#ffff'}}></View>
+            <View style ={{flex:0.6}}>
+                <View style ={styles.SearchControlUserInfo}>
+                    <View style = {styles.SearchControlUserInfoInside}>
+                        <Text style ={{color:'red', textAlign:'center'}}>ID</Text>
+                        <Text>{Id}</Text>
+                    </View>
                 </View>
-                
-                <View style ={{flex:1}}>
+                <View style ={styles.SearchControlUserInfo}>
+                    <View style = {styles.SearchControlUserInfoInside}>
+                        <Text>이름</Text>
+                        <Text>{Name}</Text>
+                    </View>
+                </View>
+                <View style ={styles.SearchControlUserInfo}>
+                    <View style = {styles.SearchControlUserInfoInside}>
+                        <Text>Pwd</Text>
+                        <Text>{Pwd}</Text>
+                    </View>
+                </View>
+            </View>
+                <View style ={{flex:0.4}}>
                     <TouchableOpacity
                         style={{
                             position :"absolute",
@@ -59,7 +77,7 @@ const SearchScreen = (props) =>{
                             <Text style = {{color:'#fff', textAlign:'center'}}>조회</Text>
                     </TouchableOpacity>
                 </View>
-            </View>
+            
         </View>
     );
 }
@@ -79,6 +97,20 @@ const styles = StyleSheet.create({
         paddingLeft:15,
         textAlign:'left',
     },
+    SearchControlUserInfo:{
+        flex:0.2,
+        width : '100%',
+        flexDirection : 'row',
+        alignItems : 'center',
+        borderBottomWidth : 0.5,
+        padding:5,
+        marginTop : 20,
+        marginBottom : 20,
+    },
+    SearchControlUserInfoInside:{
+        flexDirection : 'row',
+        alignItems : 'center',
+    }
 });
 
 export default SearchScreen;
