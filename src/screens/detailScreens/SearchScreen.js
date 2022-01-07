@@ -18,10 +18,12 @@ const SearchScreen = (props) =>{
 
         return () => backHandler.remove();
     }, []);
+    /** 변수 */
     const [searchID, searchUserID] = React.useState('');
 
     const searchFunc = () => {
         props.searchFunc(searchID);
+        console.log("clicked");
     }  // props가 undefied로 뜸
 
     return(
@@ -34,11 +36,12 @@ const SearchScreen = (props) =>{
                     onChangeText ={searchUserID}
                 />
                 <View style={{width : '100%', height : 2, marginBottom : 15, marginTop : 15, backgroundColor : '#ffff'}}/>
-{/*                 
+                
                 <View style={{flex:1, padding:20, marginTop:20, marginBottom:20}}>
-                    ID , 이름 , PWD 뜨게 할 부분 
+                    <Text>조회된 ID</Text>
+                    <Text>{searchID}</Text>
                 </View>
-                 */}
+                
                 <View style ={{flex:1}}>
                     <TouchableOpacity
                         style={{
@@ -67,13 +70,13 @@ const styles = StyleSheet.create({
         justifyContent:'center',
     },    SearchScreenTextInput: {
         width: '80%',
-        height: 30,
+        height: 50,
         borderColor: '#cccccc',
         borderBottomWidth: 2,
         borderRadius: 15,
         marginLeft:7,
         marginBottom: 20,
-        padding:5,
+        paddingLeft:15,
         textAlign:'left',
     },
 });
