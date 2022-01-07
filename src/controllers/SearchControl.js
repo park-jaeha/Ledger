@@ -11,27 +11,38 @@ import { userInfo } from '../Global';
 const SearchControl = ()=>{
 
     const searchFunc = async(id)=>{
-        if(id == _userId){
-            <View style = {styles.SearchControlUserInfo}>
-            <View style ={styles.SearchControlUserInfo}>
-                <View style = {styles.SearchControlUserInfoInside}>
-                    <Text>ID</Text>
-                    <Text>{userInfo._userId}</Text>
-                </View>
-            </View>
-            <View style ={styles.SearchControlUserInfo}>
-                <View style = {styles.SearchControlUserInfoInside}>
-                    <Text>이름</Text>
-                    <Text>{userInfo._userNm}</Text>
-                </View>
-            </View>
-            <View style ={styles.SearchControlUserInfo}>
-                <View style = {styles.SearchControlUserInfoInside}>
-                    <Text>Pwd</Text>
-                    <Text>{userInfo._userPw}</Text>
-                </View>
-            </View>
-            </View>
+        if(id == Global.userInfo._userId){
+            // <View style = {styles.SearchControlUserInfo}>
+            // <View style ={styles.SearchControlUserInfo}>
+            //     <View style = {styles.SearchControlUserInfoInside}>
+            //         <Text>ID</Text>
+            //         <Text>${id}</Text>
+            //     </View>
+            // </View>
+            // <View style ={styles.SearchControlUserInfo}>
+            //     <View style = {styles.SearchControlUserInfoInside}>
+            //         <Text>이름</Text>
+            //         <Text>${_userNm}</Text>
+            //     </View>
+            // </View>
+            // <View style ={styles.SearchControlUserInfo}>
+            //     <View style = {styles.SearchControlUserInfoInside}>
+            //         <Text>Pwd</Text>
+            //         <Text>${_userPw}</Text>
+            //     </View>
+            // </View>
+            // </View>
+            Toast.show({
+                type: 'success',
+                position: 'top',
+                text1 : 'Search Successed',
+                text2 : 'DB연동에 성공하였습니다.',
+                visibilityTime : 1000,
+                autoHide : true,
+                topOffset : 10,
+                bottomOffset: 40,
+            });
+            console.log("success");
         }else{
             Toast.show({
                 type: 'error',
@@ -43,6 +54,7 @@ const SearchControl = ()=>{
                 topOffset : 10,
                 bottomOffset: 40,
             });
+            console.log("failed");
         }
     }
     return(
@@ -51,6 +63,7 @@ const SearchControl = ()=>{
                 searchFunc = {searchFunc}
             >
             </SearchScreen>
+            <Toast />
         </View>
     )
 }
