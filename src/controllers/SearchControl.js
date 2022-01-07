@@ -3,10 +3,10 @@ import { StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationService } from './../common';
-import { _userId, _userPw, _userNm} from '../Global';
 import Toast from 'react-native-toast-message';
 /** Component import */
 import SearchScreen from './../screens/detailScreens/SearchScreen';
+import Global from '../Global';
 
 const SearchControl = ()=>{
 
@@ -14,8 +14,20 @@ const SearchControl = ()=>{
         if(id == _userId){
             <View style ={styles.SearchControlUserInfo}>
                 <View style = {styles.SearchControlUserInfoInside}>
-                    <Text style = {{paddingLeft : 5}}>ID</Text>
-                    <Text style = {{paddingLeft : 10}}>{id}</Text>
+                    <Text>ID</Text>
+                    <Text>${id}</Text>
+                </View>
+            </View>
+            <View style ={styles.SearchControlUserInfo}>
+                <View style = {styles.SearchControlUserInfoInside}>
+                    <Text>이름</Text>
+                    <Text>${_userNm}</Text>
+                </View>
+            </View>
+            <View style ={styles.SearchControlUserInfo}>
+                <View style = {styles.SearchControlUserInfoInside}>
+                    <Text>Pwd</Text>
+                    <Text>${_userPw}</Text>
                 </View>
             </View>
         }else{
@@ -54,6 +66,8 @@ const styles= StyleSheet.create({
         alignItems : 'center',
         borderBottomWidth : 0.5,
         padding:5,
+        marginTop : 20,
+        marginBottom : 20,
     },
     SearchControlUserInfoInside:{
         flexDirection : 'row',
