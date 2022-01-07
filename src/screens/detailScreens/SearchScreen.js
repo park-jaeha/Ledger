@@ -22,7 +22,7 @@ const SearchScreen = (props) =>{
 
     const searchFunc = () => {
         props.searchFunc(searchID);
-    }  // props가 undefied로 뜸
+    }
 
     return(
         <View style ={styles.SearchScreenWrap}>

@@ -6,7 +6,7 @@ import { NavigationService } from './../common';
 import Toast from 'react-native-toast-message';
 /** Component import */
 import SearchScreen from './../screens/detailScreens/SearchScreen';
-import Global from '../Global';
+import { userInfo } from '../Global';
 
 const SearchControl = ()=>{
 
@@ -16,19 +16,19 @@ const SearchControl = ()=>{
             <View style ={styles.SearchControlUserInfo}>
                 <View style = {styles.SearchControlUserInfoInside}>
                     <Text>ID</Text>
-                    <Text>${id}</Text>
+                    <Text>{userInfo._userId}</Text>
                 </View>
             </View>
             <View style ={styles.SearchControlUserInfo}>
                 <View style = {styles.SearchControlUserInfoInside}>
                     <Text>이름</Text>
-                    <Text>${_userNm}</Text>
+                    <Text>{userInfo._userNm}</Text>
                 </View>
             </View>
             <View style ={styles.SearchControlUserInfo}>
                 <View style = {styles.SearchControlUserInfoInside}>
                     <Text>Pwd</Text>
-                    <Text>${_userPw}</Text>
+                    <Text>{userInfo._userPw}</Text>
                 </View>
             </View>
             </View>
