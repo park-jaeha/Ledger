@@ -20,11 +20,9 @@ const SearchScreen = (props) =>{
     }, []);
     const [searchID, searchUserID] = React.useState('');
 
-    const nextInp = React.useRef();
-
     const searchFunc = () => {
-        props.SearchFunc(searchID);
-    }
+        props.searchFunc(searchID);
+    }  // props가 undefied로 뜸
 
     return(
         <View style ={styles.SearchScreenWrap}>
@@ -44,6 +42,8 @@ const SearchScreen = (props) =>{
                 <View style ={{flex:1}}>
                     <TouchableOpacity
                         style={{
+                            position :"absolute",
+                            bottom : 100,
                             width: 120,
                             justifyContent: 'center',
                             alignSelf:'center',
