@@ -4,7 +4,7 @@ import { StyleSheet, View, Text, Image, TouchableOpacity, Alert, BackHandler } f
 import { TextInput } from 'react-native-gesture-handler';
 import { NavigationService } from '../../common';
 import Global from '../../Global';
-import MSSQLQuery from './../models/MSSQL/MSSQLQuery';
+
 
 const SearchScreen = (props) =>{
     React.useEffect(() => {
@@ -22,14 +22,14 @@ const SearchScreen = (props) =>{
     }, []);
     /** 변수 */
     const [searchID, searchUserID] = React.useState('');
-    const [Id, setId] = React.useState('');
+    //const [Id, setId] = React.useState('');
     const [Name, setName] = React.useState('');
     const [Pwd, setPwd] = React.useState('');
 
     const searchFunc = () => {
         props.searchFunc(searchID);
         // console.log("clicked");
-        setId(Global.SearchedUserInfo.s_userId);
+        //setId(Global.SearchedUserInfo.s_userId);
         setName(Global.SearchedUserInfo.s_userNm);
         setPwd(Global.SearchedUserInfo.s_userPw);
     }
@@ -49,7 +49,7 @@ const SearchScreen = (props) =>{
                 <View style ={styles.SearchControlUserInfo}>
                     <View style = {styles.SearchControlUserInfoInside}>
                         <Text style ={styles.SearchedItemsSpace}>ID :</Text>
-                        <Text style ={styles.SearchedItemsSpace}>{Id}</Text>
+                        <Text style ={styles.SearchedItemsSpace}>{searchID}</Text>
                     </View>
                 </View>
                 <View style ={styles.SearchControlUserInfo}>
