@@ -37,8 +37,8 @@ const MainScreen = (props)=>{
     const settingFunc =()=>{
         props.settingFunc();
     }
-    const searchFunc =()=>{
-        props.searchFunc();
+    const FlatlistFunc =()=>{
+        props.FlatlistFunc();
     }
     return(
         <View style ={styles.MainScreenWrap}>
@@ -72,7 +72,7 @@ const MainScreen = (props)=>{
                     borderRadius: 30,
                     alignSelf:'center',
                     }}
-                    onPress = {searchFunc}
+                    onPress = {FlatlistFunc}
                 >
                     <Text style ={{ color:'#fff', textAlign:'center'}}>현우페이지</Text>
                 </TouchableOpacity>

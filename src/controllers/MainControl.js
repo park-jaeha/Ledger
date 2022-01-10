@@ -12,7 +12,7 @@ const MainControl = () =>{
     const settingFunc = async()=>{
 
     }
-    const searchFunc = async()=>{
+    const FlatlistFunc = async()=>{
         NavigationService.navigate('현우');
     }
     return(
@@ -20,7 +20,7 @@ const MainControl = () =>{
             <MainScreen 
             returnFunc = {returnFunc}
             settingFunc = {settingFunc}
-            searchFunc= {searchFunc}
+            FlatlistFunc = {FlatlistFunc}
             />
         </View>
     )

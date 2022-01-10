@@ -9,19 +9,29 @@ import { NavigationService } from './../common';
 import LoginScreen from '../screens/LoginScreen';
 import MSSQLQuery from './../models/MSSQL/MSSQLQuery';
 import Global from '../Global';
+import SLoading from './../screens/component/SLoading';
 
 let MSSQLUpload = require('./../models/MSSQL/MSSQLQuery');
 
 const LoginControl = ({navigation}) =>{
-
+    const [loading, setLoading] = React.useState(false);
+     
+    const openLoading = () => {
+         setLoading(true);
+    }
+    const closeLoading = () => {
+         setLoading(false);
+    }
     const LoginFunc= async (id,pw)=>{
+        openLoading();
         let MSSQLSelect = await MSSQLQuery("SELECT * FROM TB_USER WHERE USER_ID ='"+id+"' AND USER_PWD ='"+pw+"'");
         console.log(MSSQLSelect);
         if(!id||!pw||MSSQLSelect.length<1){
+            closeLoading();
             Toast.show({
                 type: 'error',
                 position: 'top',
-                text1: 'Faild',
+                text1: 'Failed',
                 text2: 'ID 혹은 PW가 다릅니다. 다시 한번 확인해주세요.',
                 visibilityTime: 1000,
                 autoHide: true,
@@ -30,6 +40,7 @@ const LoginControl = ({navigation}) =>{
             });
         }
         else{
+            closeLoading();
             Global.userInfo._userId = MSSQLSelect[0].USER_ID;
             Global.userInfo._userNm = MSSQLSelect[0].USER_NM;
             
@@ -40,6 +51,9 @@ const LoginControl = ({navigation}) =>{
         <View style = {styles.LoginControlWrap}>
             <LoginScreen 
                 LoginFunc = {LoginFunc}
+            />
+            <SLoading
+                loading={loading}
             />
             <Toast />
         </View>

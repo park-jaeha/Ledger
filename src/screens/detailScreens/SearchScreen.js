@@ -25,7 +25,6 @@ const SearchScreen = (props) =>{
     //const [Id, setId] = React.useState('');
     const [Name, setName] = React.useState('');
     const [Pwd, setPwd] = React.useState('');
-
     const searchFunc = async() => {
         await props.searchFunc(searchID);
         // await이 끝날때까지 setName 들이 기다린다
