@@ -4,11 +4,14 @@ import { createStackNavigator } from 'react-navigation-stack';
 import LoginScreen from '../controllers/LoginControl';
 import MainScreen from '../controllers/MainControl';
 import SettingScreen from '../controllers/SettingControl';
+import SearchScreen from '../controllers/SearchControl';
+import FlatlistScreen from './detailScreens/FlatlistScreen';
 
 const AuthStack = createStackNavigator(
     {
         Main : {screen : MainScreen},
-        설정 : {screen : SettingScreen}
+        설정 : {screen : SettingScreen},
+        현우 : {screen : FlatlistScreen},
     },
     {
         initialRouteName: 'Main',

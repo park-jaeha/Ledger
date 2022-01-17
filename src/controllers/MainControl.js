@@ -12,12 +12,15 @@ const MainControl = () =>{
     const settingFunc = async()=>{
 
     }
-
+    const FlatlistFunc = async()=>{
+        NavigationService.navigate('현우');
+    }
     return(
         <View style = {styles.MainControlWrap}>
             <MainScreen 
             returnFunc = {returnFunc}
             settingFunc = {settingFunc}
+            FlatlistFunc = {FlatlistFunc}
             />
         </View>
     )
