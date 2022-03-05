@@ -13,8 +13,8 @@ import Global from '../Global';
 const LoginControl = ({navigation}) =>{
 
     const LoginFunc= async (userID,userPW)=>{
-        let MSSQLSelect = await MSSQLQuery("SELECT * FROM TB_USER WHERE USER_ID ='"+userID+"' AND USER_PWD ='"+userPW+"'");
-        if(!userID||!userPW||MSSQLSelect.length<1){
+        // let MSSQLSelect = await MSSQLQuery("SELECT * FROM TB_USER WHERE USER_ID ='"+userID+"' AND USER_PWD ='"+userPW+"'");
+        if(!userID||!userPW){
             Toast.show({
                 type: 'error',
                 position: 'top',
@@ -27,8 +27,8 @@ const LoginControl = ({navigation}) =>{
             });
         }
         else{
-            Global.userInfo._userId = MSSQLSelect[0].USER_ID;
-            Global.userInfo._userNm = MSSQLSelect[0].USER_NM;
+            // Global.userInfo._userId = MSSQLSelect[0].USER_ID;
+            // Global.userInfo._userNm = MSSQLSelect[0].USER_NM;
             
             NavigationService.navigate('Main');
         }
@@ -38,7 +38,7 @@ const LoginControl = ({navigation}) =>{
             <LoginScreen 
                 LoginFunc = {LoginFunc}
             />
-            <Toast ref={(ref) => Toast.setRef(ref)} />
+            <Toast />
         </View>
     )
 }

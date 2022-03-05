@@ -32,7 +32,7 @@ const SettingScreen = (props) =>{
                 name = "test"
                 getDate ={getDate}
             />
-                
+            <Text> 사장 : 안준범쿤</Text>  
         </View>
     );
 }

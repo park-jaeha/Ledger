@@ -41,10 +41,10 @@ const MainScreen = (props)=>{
         <View style ={styles.MainScreenWrap}>
             <View style ={styles.MainTitleWrap}>
                 <Image source ={survive} style ={styles.titleImgWrap}></Image>
-                <Text style ={{marginTop:20,fontSize:18,}}>김구박's 살아남기</Text>
+                <Text style ={{marginTop:20,fontSize:18,}}>ReU Test App</Text>
             </View>
             <View style = {styles.ContentWrap}>
-                <Text style ={{textAlign:'center'}}>Test Ledger Main page</Text>
+                <Text style ={{textAlign:'center'}}>Test ReU Main page</Text>
                 <TouchableOpacity
                     style={{
                     width: 230 ,

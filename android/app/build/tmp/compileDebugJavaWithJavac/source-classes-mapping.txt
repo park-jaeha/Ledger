@@ -1,0 +1,14 @@
+com/ledger/MainActivity.java
+ com.ledger.MainActivity
+com/ledger/BuildConfig.java
+ com.ledger.BuildConfig
+com/ledger/MainApplication.java
+ com.ledger.MainApplication
+ com.ledger.MainApplication$1
+com/ledger/ReactNativeFlipper.java
+ com.ledger.ReactNativeFlipper
+ com.ledger.ReactNativeFlipper$1
+ com.ledger.ReactNativeFlipper$2
+ com.ledger.ReactNativeFlipper$2$1
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList

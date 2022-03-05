@@ -1,100 +1,143 @@
 import * as React from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity,ImageBackground, BackHandler, Alert } from 'react-native';
-import fish from './../images/Logo/fish_48.png';
-import { NavigationService } from './../common';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity,ImageBackground, Platform, Image } from 'react-native';
+/** Component Import */
+import SLogoTitle from './Components/SLogoTitle';
+/** Image Import */
+import Logo from '../images/Logo/ReU.png';
+import background from '../images/Login/background.png';
+import login from '../images/Login/login.png';
+import lock from '../images/Login/lock.png';
 
-
-const LoginScreen = (props)=>{
-    React.useEffect(() => {
-        const backAction = () => {
-            Alert.alert(
-                '앱 종료',
-                '정말로 앱을 종료하시겠습니까?', [
-                    {
-                        text: '취소',
-                        onPress: () => console.log("Cancel Pressed"),
-                        style: 'cancel'
-                    }, { text: '종료', onPress: async () => {
-                        BackHandler.exitApp();
-                    } }
-                ], { cancelable: false }
-            );
-            return true;
-        };
-    
-        const backHandler = BackHandler.addEventListener(
-            "hardwareBackPress",
-            backAction
-        );
-        return () => backHandler.remove();
-    }, []);
-    
-    const [userID, setUserID] = React.useState('JH');
-    const [userPW, setUserPW] = React.useState('test');
+const LoginScreen = (props) => {
+    const [userID, setUserID] = React.useState('SYSTEM');
+    const [userPW, setUserPW] = React.useState('11111');
 
     const nextInput = React.useRef();
 
-    const LoginFunc = ()=>{
+    const execLogin = () => {
+        //console.log(userID,userPW);
         props.LoginFunc(userID, userPW);
     }
 
     return(
-        <ImageBackground source = {fish} style ={{flex:1,}} blurRadius={10}>
-            <View style ={styles.LoginScreenWrap} >
-                <View style = {{flex:1.5, justifyContent:'center'}}>
-                <Text style ={styles.LogoTextWrap}>가계부 test</Text>
-                </View>
-                <View style = {{flex:1 ,alignItems:'center'}}> 
-                <TextInput
-                    style={styles.LoginScreenTextInput}
-                    placeholder='ID'
-                    value={userID}
-                    onChangeText={setUserID}
-                    onEndEditing={ () => {nextInput.current.focus();} }
-                />
-                <TextInput
-                    style={styles.LoginScreenTextInput}
-                    placeholder='PW'
-                    value={userPW}
-                    onChangeText={setUserPW}
-                    ref={nextInput}
-                    secureTextEntry={true}
-                />
-                </View>
-                <View style ={{flex:1}}>
-                <TouchableOpacity
-                    style={{
-                    width: 120 ,
-                    justifyContent: 'center',
-                    alignSelf:'center',
-                    backgroundColor:  '#000' ,
-                    padding:12,
-                    marginTop: 20,
-                    borderRadius: 30,}}
-                    onPress = {LoginFunc}
-                >
-                    <Text style ={{ color:'#fff', textAlign:'center'}}>로그인</Text>
-                </TouchableOpacity>
-                </View>
-            </View>
-        </ImageBackground>
+        <View style={styles.LoginScreenWrap}>
+                <ImageBackground source={background} style={{
+                    flex:1,
+                }}>
+                    <View style ={{flex:1, justifyContent:'space-between'}}>
+                        <View style={styles.SLogoTitleWrap} >
+                            <View style ={styles.circle}>
+                                <SLogoTitle
+                                    Img={Logo}
+                                    ImgWidth={133}
+                                    ImgHeight={77}
+                                />
+                            </View>
+                        </View>
+                        <View style = {{flex:0.1}}></View>
+                        <View style = {styles.loginTab}>
+                            <View style={styles.LoginScreenTextInputWrap} >
+                                <View style = {{flex:0.35}}></View>
+                                    <View style ={{flexDirection:'row'}}>
+                                        <Image source = {login}></Image>
+                                        <TextInput
+                                            style={styles.LoginScreenTextInput}
+                                            placeholder='ID'
+                                            value={userID}
+                                            onChangeText={setUserID}
+                                            onEndEditing={ () => {nextInput.current.focus();} }
+                                        />
+                                    </View>
+                                <View style ={{flexDirection:'row'}}>
+                                    <Image source = {lock}></Image>
+                                    <TextInput
+                                        style={styles.LoginScreenTextInput}
+                                        placeholder='PW'
+                                        value={userPW}
+                                        onChangeText={setUserPW}
+                                        ref={nextInput}
+                                        secureTextEntry={true}
+                                    />
+                                </View>
+                                <View style = {{flex:0.7,marginBottom:10}}>
+                                    <TouchableOpacity
+                                    style={{
+                                        width: 180 ,
+                                        justifyContent: 'flex-end',
+                                        backgroundColor:  '#697911' ,
+                                        padding:12,
+                                        marginTop: 20,
+                                        borderRadius: 30,
+                                    }}
+                                    onPress={execLogin}
+                                        // name='로그인'
+                                        // buttonPress={execLogin}
+                                    ><Text style={{fontSize: 18,
+                                        textAlign: 'center',
+                                        fontWeight:'bold',
+                                        color: '#fff',}}>로그인</Text>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        </View>
+                    </View>
+                </ImageBackground>
+        </View>
     );
 }
 
 const styles = StyleSheet.create({
-    LoginScreenWrap :{
-        flex:1,
-        justifyContent:'center',
+    LoginScreenWrap: {
+        flex: 1,
+        backgroundColor:'#ffefba',
     },
-    LogoTextWrap:{
-        alignSelf:'center', 
-        width:200, 
-        textAlign:'center', 
-        color :'#EAB0FC', 
-        backgroundColor:'#000'
+    loginTab:{
+        flex:1.5,
+        justifyContent:'center',
+        alignItems: 'center',
+        alignContent:'center',
+    },
+    SLogoTitleWrap: {
+        flex: 1,
+        marginLeft:10,
+        marginTop:10,
+        justifyContent:'center',
+        alignItems:'center',
+    },
+    circle:{
+        flex:0.58,
+        width:80*2,
+        height:60,
+        borderRadius:90,
+        borderColor:'#000',
+        backgroundColor:'#fff',
+        ...Platform.select({
+        ios:{
+            shadowColor: "#000", //그림자색
+            shadowOffset: { width: 10, height: 10 }, //그림자 위치
+            shadowOpacity: 0.25,//그림자 투명도
+            //shadowRadius:20,
+        },
+        android:{
+            elevation: 5,
+        },
+        }),
+    },
+    LoginScreenTextInputWrap: {
+        flex: 1.5,
+        backgroundColor:'#fff',
+        width:280,
+        height:100,
+        borderRadius:15,
+        //marginTop:10,
+        marginBottom:150,
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignContent:'center',
+        elevation: 5,
     },
     LoginScreenTextInput: {
-        width: '80%',
+        width: '70%',
         height: 30,
         borderColor: '#cccccc',
         borderBottomWidth: 2,
